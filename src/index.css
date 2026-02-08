@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --border: 240 5.9% 90%;
+    --subnav: 240 4.8% 95.9%;
+    --navactive: 199 89% 48%;
+    
+    /* COULEUR DES CHIFFRES ROMAINS (MODE CLAIR) */
+    /* Un gris assez foncé pour être bien visible sur blanc */
+    --roman: 240 5% 40%; 
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --subnav: 240 5.9% 10%;
+    --navactive: 187 94% 42%;
+    
+    /* COULEUR DES CHIFFRES ROMAINS (MODE SOMBRE) */
+    /* Un gris clair pour trancher sur le fond sombre */
+    --roman: 240 5% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased;
+    /* Optionnel : masquer la scrollbar sur tout le site */
+    /* @apply no-scrollbar; */
+  }
+}
+
+@layer utilities {
+  /* MASQUER LA SCROLLBAR VERTICALE ET HORIZONTALE */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Animations additionnelles si nécessaire */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
