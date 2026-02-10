@@ -62,7 +62,7 @@ Routing is the art of finding the best path in a maze that changes every second.
 "2": {
     title: "OSI: The 7 Layers That Power the Internet",
     category: "Networking 101",
-    date: "2026-02-10T01:20:00Z",
+    date: "2026-02-08T10:00:00Z",
     readTime: "15 min",
     image: "/OSIMODEL.jpg",
     tags: ["OSI", "7 layers", "TCP/IP", "networking"],

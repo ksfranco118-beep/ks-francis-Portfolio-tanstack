@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Clock, Link2, Library, ChevronRight } from 'lucide-react'
 
-
 export const Route = createFileRoute('/insights')({
   component: InsightsPage,
 })
@@ -15,7 +14,6 @@ const articles = [
     date: "2026-02-08T10:00:00Z", 
     readTime: "8 min",
     category: "Networking 101",
-    // Assure-toi que cette image est dans ton dossier /public
     image: "/routing.jpg", 
     sources: [
       { name: "Cloudflare", url: "https://www.cloudflare.com/learning/network-layer/what-is-routing/" }, 
@@ -23,27 +21,25 @@ const articles = [
     ]
   },
   {
-id:2,
-title:"OSI, the famous seven layer of internet",
-excerpt:"Sometime we need to know the real beneficts of internet subdivision. In this case let go to the world of division",
-date:"2026-02-010T1:00:00Z",
-readTime:"15min",
-category:"Networking 101",
-image:"/OSIMODEL.jpg",
-sources: [
+    id: 2,
+    title: "OSI, the famous seven layer of internet",
+    excerpt: "Sometime we need to know the real beneficts of internet subdivision. In this case let go to the world of division",
+    // Correction de la date : format ISO valide (YYYY-MM-DDTHH:mm:ssZ)
+    date: "2026-02-10T01:00:00Z", 
+    readTime: "15 min",
+    category: "Networking 101",
+    image: "/OSIMODEL.jpg",
+    sources: [
       { name: "Cloudflare", url: "https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/" }, 
       { name: "AWS", url: "https://aws.amazon.com/what-is/osi-model/" },
-      {name:"Youtube +1", url:"https://youtu.be/v4sRKGarh5Q?si=cOQBO9rO4jBYCGr6"},
-      {name:"wikipedia", url:"https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI"}
-
+      { name: "Youtube +1", url: "https://youtu.be/v4sRKGarh5Q?si=cOQBO9rO4jBYCGr6" },
+      { name: "wikipedia", url: "https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI" }
     ]
-
   },
-
 ]
 
 /**
- * COMPOSANT TIMEAGO - Affiche le temps écoulé dynamiquement
+ * COMPOSANT TIMEAGO AMÉLIORÉ
  */
 function TimeAgo({ date }: { date: string }) {
   const [relativeTime, setRelativeTime] = useState<string | null>(null)
@@ -52,6 +48,13 @@ function TimeAgo({ date }: { date: string }) {
     const updateTime = () => {
       const now = new Date().getTime()
       const published = new Date(date).getTime()
+      
+      // Sécurité si la date est invalide
+      if (isNaN(published)) {
+        setRelativeTime('Recently')
+        return
+      }
+
       const diffInMinutes = Math.floor((now - published) / (1000 * 60))
 
       if (diffInMinutes < 1) setRelativeTime('Just now')
@@ -66,7 +69,6 @@ function TimeAgo({ date }: { date: string }) {
   }, [date])
 
   if (!relativeTime) return <span className="opacity-0">...</span>
-
   return <span className="font-medium text-blue-500 tracking-tight">{relativeTime}</span>
 }
 
@@ -150,7 +152,6 @@ function InsightsPage() {
                           href={source.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          // Arrête la propagation pour ne pas naviguer vers l'article
                           onClick={(e) => e.stopPropagation()}
                           className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-background border border-border text-[9px] text-foreground/60 font-bold uppercase tracking-widest hover:text-blue-500 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all z-30"
                         >
