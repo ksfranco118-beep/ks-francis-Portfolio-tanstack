@@ -2,6 +2,7 @@
 import { createRootRoute, Link, Outlet, useRouterState } from '@tanstack/react-router'
 import { MobileNav } from '../components/MobileNav'
 import { ThemeToggle } from '../components/theme-toggle'
+import ScrollProgress from '../components/ScrollProgress';
 
 // ✅ L'export doit s'appeler "Route" (et non RootLayout)
 export const Route = createRootRoute({
@@ -15,6 +16,7 @@ function RootLayout() {
   return (
     <div className="min-h-dvh flex flex-col bg-background text-foreground selection:bg-cyan-500/30 transition-colors duration-300">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
+      <ScrollProgress />
         <nav className="max-w-5xl mx-auto flex h-16 items-center justify-between px-6">
           <Link to="/" className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
             KS-francis<span className="text-cyan-500">.</span>

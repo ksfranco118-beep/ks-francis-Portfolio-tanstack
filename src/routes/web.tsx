@@ -8,6 +8,8 @@ export const Route = createFileRoute('/web')({
 })
 
 export default function WebExcellencePage() {
+    const whatsappNumber = "22601692660" 
+    const message = "I have a project and want to collaborate"
   return (
     <div className="min-h-screen space-y-24 py-20 px-6 max-w-6xl mx-auto">
       
@@ -67,9 +69,12 @@ export default function WebExcellencePage() {
               Every pixel is placed with intention. I focus on details that others ignore to deliver a superior final product.
             </p>
           </div>
-          <button className="px-8 py-3 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-800 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all">
+          <a rel="noopener noreferrer" 
+          target='_blank'           
+           href={`https://wa.me/${whatsappNumber}?text=${message}`} 
+            className="px-8 py-3 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-800 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all">
             Start a project
-          </button>
+          </a>
         </div>
       </footer>
     </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Clock, Link2, Library, ChevronRight } from 'lucide-react'
 
+
 export const Route = createFileRoute('/insights')({
   component: InsightsPage,
 })
@@ -20,6 +21,23 @@ const articles = [
       { name: "Cloudflare", url: "https://www.cloudflare.com/learning/network-layer/what-is-routing/" }, 
       { name: "Cisco BGP", url: "https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html" }
     ]
+  },
+  {
+id:2,
+title:"OSI, the famous seven layer of internet",
+excerpt:"Sometime we need to know the real beneficts of internet subdivision. In this case let go to the world of division",
+date:"2026-02-010T1:00:00Z",
+readTime:"15min",
+category:"Networking 101",
+image:"/OSIMODEL.jpg",
+sources: [
+      { name: "Cloudflare", url: "https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/" }, 
+      { name: "AWS", url: "https://aws.amazon.com/what-is/osi-model/" },
+      {name:"Youtube +1", url:"https://youtu.be/v4sRKGarh5Q?si=cOQBO9rO4jBYCGr6"},
+      {name:"wikipedia", url:"https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI"}
+
+    ]
+
   },
 
 ]
@@ -95,7 +113,7 @@ function InsightsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
-                  <div className="absolute top-6 left-6 z-20 px-2 py-0.5 bg-background/90 backdrop-blur-sm border border-border text-[9px] font-black uppercase tracking-tighter rounded shadow-sm text-foreground">
+                  <div className="absolute top-6 left-6 z-20 px-2 py-0.5 bg-background/90 backdrop-blur-sm opacity-60 border border-border text-[9px] font-black uppercase tracking-tighter rounded shadow-sm text-foreground">
                     {post.category}
                   </div>
                 </div>

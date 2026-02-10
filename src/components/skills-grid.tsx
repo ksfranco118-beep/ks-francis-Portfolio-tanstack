@@ -76,10 +76,10 @@ export function SkillsGrid() {
           return (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, y: 15 }} // Animation d'entrée plus douce
+              initial={{ opacity: 0.2, y:20 }} // Animation d'entrée plus douce
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              transition={{ duration: 1,  ease: "easeOut" }}
               whileHover={{ y: -8 }}
               className={`group relative p-8 border rounded-3xl transition-all duration-500 ${skill.border} ${skill.color} bg-opacity-10 dark:bg-opacity-5 
               hover:shadow-2xl hover:shadow-cyan-500/5 min-h-64

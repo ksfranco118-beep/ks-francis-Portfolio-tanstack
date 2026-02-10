@@ -66,7 +66,7 @@ export function StepWork() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 uppercase text-foreground"
+              className="text-4xl md:text-8xl font-bold tracking-tighter mb-6 uppercase text-foreground"
             >
               {step.title}
             </motion.h2>
