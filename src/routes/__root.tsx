@@ -1,10 +1,10 @@
-
 import { createRootRoute, Link, Outlet, useRouterState } from '@tanstack/react-router'
 import { MobileNav } from '../components/MobileNav'
 import { ThemeToggle } from '../components/theme-toggle'
 import ScrollProgress from '../components/ScrollProgress';
+import { LanguageSwitch } from '../components/LanguageSwitch';
+import { useTranslation } from 'react-i18next'; // ✅ Ajout de l'import
 
-// ✅ L'export doit s'appeler "Route" (et non RootLayout)
 export const Route = createRootRoute({
   component: RootLayout,
 })
@@ -12,11 +12,20 @@ export const Route = createRootRoute({
 function RootLayout() {
   const routerState = useRouterState()
   const currentPath = routerState.location.pathname
+  const { t } = useTranslation(); // ✅ Initialisation de la traduction
+
+  // Configuration des liens de navigation avec les clés de traduction
+  const navLinks = [
+    { to: '/', label: t('nav_home') },
+    { to: '/posts', label: t('nav_projects') },
+    { to: '/insights', label: t('nav_insights') },
+    { to: '/web', label: t('nav_websites') },
+  ]
 
   return (
     <div className="min-h-dvh flex flex-col bg-background text-foreground selection:bg-cyan-500/30 transition-colors duration-300">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <ScrollProgress />
+        <ScrollProgress />
         <nav className="max-w-5xl mx-auto flex h-16 items-center justify-between px-6">
           <Link to="/" className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
             KS-francis<span className="text-cyan-500">.</span>
@@ -24,12 +33,7 @@ function RootLayout() {
           
           <div className="flex items-center gap-4 h-full">
             <div className="hidden md:flex gap-1 items-stretch h-full">
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/posts', label: 'Projects' },
-                { to: '/insights', label: 'Insights' },
-                { to: '/web', label: 'Websites' },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to as any}
@@ -43,12 +47,14 @@ function RootLayout() {
               ))}
             </div>
           </div>
-          <ThemeToggle />
+<div className='flex items-center justify-between gap-6 sm:gap-10 h-full px-4'>
+  <LanguageSwitch />
+  <ThemeToggle />
+</div>
         </nav>
       </header>
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-10">
-        {/* ✅ L'Outlet est indispensable pour afficher les pages enfants */}
         <Outlet /> 
       </main>
 

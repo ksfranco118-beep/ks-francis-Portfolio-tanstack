@@ -1,9 +1,17 @@
 import { motion } from 'framer-motion'
 import { Twitter, Linkedin, Github, MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next' // ✅ Import
 
 export function Collaborate() {
+  const { t, i18n } = useTranslation() // ✅ Hook
   const whatsappNumber = "22644972690" 
-  const message = encodeURIComponent("Bonjour ! J'ai vu votre portfolio et j'aimerais discuter d'un projet.")
+  
+  // Message WhatsApp traduit automatiquement
+  const messageText = i18n.language === 'fr' 
+    ? "Bonjour ! J'ai vu votre portfolio et j'aimerais discuter d'un projet."
+    : "Hello! I saw your portfolio and I would like to discuss a project."
+  
+  const message = encodeURIComponent(messageText)
 
   return (
     <section className="py-20 sm:py-32 px-4 sm:px-6 flex flex-col items-center justify-center text-center bg-zinc-950 overflow-hidden relative rounded-t-[3rem] border-t border-zinc-900">
@@ -19,11 +27,11 @@ export function Collaborate() {
         className="max-w-3xl w-full space-y-6 sm:space-y-8"
       >
         <h2 className="text-3xl xs:text-4xl md:text-6xl font-bold tracking-tighter text-white uppercase px-2">
-          Ready to build the next <span className="text-cyan-500 italic font-serif block sm:inline">infrastructure?</span>
+          {t('collab_title_main')} <span className="text-cyan-500 italic font-serif block sm:inline">{t('collab_title_italic')}</span>
         </h2>
         
         <p className="text-zinc-400 text-base md:text-xl leading-relaxed max-w-2xl mx-auto px-2 font-light">
-          Let’s combine your vision with my networking and fullstack skills to create systems that are <span className="text-zinc-100">strong and beautiful</span>.
+          {t('collab_description_start')} <span className="text-zinc-100">{t('collab_description_highlight')}</span>.
         </p>
 
         {/* BOUTON WHATSAPP ANIMÉ */}
@@ -34,7 +42,7 @@ export function Collaborate() {
             rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center px-6 sm:px-10 py-4 sm:py-5 rounded-full bg-zinc-900 border border-white/10 text-white font-bold uppercase tracking-[0.2em] text-[10px] sm:text-xs overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl w-full sm:w-auto"
           >
-            {/* Effet de balayage lumineux (Shine) */}
+            {/* Effet de balayage lumineux */}
             <motion.div 
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
@@ -51,18 +59,18 @@ export function Collaborate() {
 
             <span className="relative z-10 flex items-center justify-center gap-3">
               <MessageCircle size={18} className="text-cyan-500" />
-              Let’s work together
+              {t('collab_btn')}
             </span>
           </a>
         </div>
 
         {/* EXPERTISE TAGS */}
         <div className="pt-8 sm:pt-12 flex flex-wrap justify-center gap-3 sm:gap-8 text-[9px] sm:text-[10px] font-bold tracking-[0.3em] text-zinc-600 uppercase font-mono">
-          <span>Consulting</span>
+          <span>{t('expertise_tag_1')}</span>
           <span className="hidden xs:inline text-zinc-800">•</span>
-          <span>Architecture</span>
+          <span>{t('expertise_tag_2')}</span>
           <span className="hidden xs:inline text-zinc-800">•</span>
-          <span>Development</span>
+          <span>{t('expertise_tag_3')}</span>
         </div>
 
         {/* SOCIAL LOGOS */}

@@ -1,15 +1,17 @@
 import { motion } from 'framer-motion'
 import { Eye, PenTool, Layout, Zap } from 'lucide-react'
-import { createFileRoute } from '@tanstack/react-router' // Import indispensable
+import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next' // ✅ Import
 
-// 1. On déclare la route pour que TanStack l'ajoute au routeTree.gen.ts
 export const Route = createFileRoute('/web')({
   component: WebExcellencePage,
 })
 
 export default function WebExcellencePage() {
-    const whatsappNumber = "22601692660" 
-    const message = "I have a project and want to collaborate"
+  const { t } = useTranslation() // ✅ Hook
+  const whatsappNumber = "22601692660" 
+  const message = t('web_wa_message') // ✅ Message traduit
+
   return (
     <div className="min-h-screen space-y-24 py-20 px-6 max-w-6xl mx-auto">
       
@@ -20,60 +22,55 @@ export default function WebExcellencePage() {
           animate={{ opacity: 1 }}
           className="text-cyan-500 text-[10px] font-black uppercase tracking-[0.4em]"
         >
-          Visual_Identity_System
+          {t('web_badge')}
         </motion.div>
         <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
-          Modern Web <br />
-          <span className="text-zinc-500">Craftsmanship.</span>
+          {t('web_title_1')} <br />
+          <span className="text-zinc-500">{t('web_title_2')}.</span>
         </h1>
         <p className="text-zinc-500 text-lg md:text-xl max-w-2xl font-medium leading-relaxed">
-          I don't just build websites. I create digital experiences where clean code meets premium aesthetics.
+          {t('web_description')}
         </p>
       </header>
 
       {/* SKILLS GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        
         <SkillSection 
           icon={<Eye size={20} />}
-          title="Glassmorphism & Depth"
-          desc="I use modern transparency and blur effects to create elegant, layered interfaces that feel deep and professional."
+          title={t('web_skill1_title')}
+          desc={t('web_skill1_desc')}
         />
-
         <SkillSection 
           icon={<Zap size={20} />}
-          title="Fluid Motion"
-          desc="Smooth transitions and organic animations that make every interaction feel natural and high-quality."
+          title={t('web_skill2_title')}
+          desc={t('web_skill2_desc')}
         />
-
         <SkillSection 
           icon={<Layout size={20} />}
-          title="Exclusive Design"
-          desc="No templates. I build custom layouts designed specifically for your brand identity and goals."
+          title={t('web_skill3_title')}
+          desc={t('web_skill3_desc')}
         />
-
         <SkillSection 
           icon={<PenTool size={20} />}
-          title="Strategic Copywriting"
-          desc="Words matter. I structure content to capture attention and guide users toward your primary goals."
+          title={t('web_skill4_title')}
+          desc={t('web_skill4_desc')}
         />
-
       </div>
 
       {/* FOOTER CALLOUT */}
       <footer className="pt-20 border-t border-zinc-800/50">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold tracking-tight">The "Premium" Touch</h2>
+            <h2 className="text-2xl font-bold tracking-tight">{t('web_footer_title')}</h2>
             <p className="text-zinc-500 text-sm max-w-md">
-              Every pixel is placed with intention. I focus on details that others ignore to deliver a superior final product.
+              {t('web_footer_desc')}
             </p>
           </div>
           <a rel="noopener noreferrer" 
-          target='_blank'           
-           href={`https://wa.me/${whatsappNumber}?text=${message}`} 
+            target='_blank'           
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`} 
             className="px-8 py-3 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-800 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all">
-            Start a project
+            {t('web_cta')}
           </a>
         </div>
       </footer>

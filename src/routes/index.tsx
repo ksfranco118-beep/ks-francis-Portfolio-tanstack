@@ -7,13 +7,15 @@ import { StepWork } from '../components/stepwork'
 import { NetworkExpertise } from '../components/telecommunication'
 import { Website } from '../components/website'
 import { Collaborate } from '../components/collaborate'
+import { useTranslation } from 'react-i18next' // ✅ Import pour la traduction
 
 export const Route = createFileRoute('/')({
   component: HomePage,
 })
 
 function HomePage() {
-  const { theme } = useTheme() // Maintenant utilisé ci-dessous
+  const { theme } = useTheme()
+  const { t } = useTranslation() // ✅ Hook de traduction
   const whatsappNumber = "22644972690" 
 
   return (
@@ -26,19 +28,19 @@ function HomePage() {
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/5 border border-cyan-500/10 text-xs font-medium relative z-10">
           <Flame size={14} className='animate-pulse text-cyan-600' />
           <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent font-semibold tracking-wide uppercase">
-            Network Engineer
+            {t('hero_badge') || 'Network Engineer'}
           </span>      
         </div>
-         
+          
         {/* Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
         <h1 className="text-5xl md:text-7xl tracking-tighter max-w-4xl leading-[0.95] font-bold relative z-10">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
-            ''Great things <br />
+            {t('hero_title_gradient') || "''Great things"} <br />
           </span>
           <span className="font-light italic text-zinc-500/40 dark:text-zinc-100/20">
-            rise from solid ground.''
+            {t('hero_title_italic') || "rise from solid ground.''"}
           </span>
         </h1>
 
@@ -49,7 +51,7 @@ function HomePage() {
             to="/posts" 
             className="h-11 w-52 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/20 hover:opacity-90 active:scale-95"
           >
-            My projects <ArrowRight size={18} />
+            {t('hero_btn_projects') || 'My projects'} <ArrowRight size={18} />
           </Link>
 
           <a 
@@ -63,14 +65,14 @@ function HomePage() {
               }`}
           >
             <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              Call me
+              {t('hero_btn_call') || 'Call me'}
             </span>
             <MessageCircle size={18} className="text-blue-600" />
           </a>
         </div>
       </section>
 
-      {/* AUTRES SECTIONS */}
+      {/* AUTRES SECTIONS - Ces composants devront aussi être traduits individuellement */}
       <SkillsGrid />
       <Synopsys />
       <StepWork />

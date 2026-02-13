@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion'
 import { Sparkles, Zap, ShieldCheck } from 'lucide-react'
+import { useTranslation } from 'react-i18next' // ✅ Import
 
 export function Synopsys() {
+  const { t } = useTranslation() // ✅ Hook
+
+  // Déplacé ici pour accéder à t()
   const points = [
-    { icon: <Sparkles size={18} />, text: "Clean design" },
-    { icon: <Zap size={18} />, text: "Fast performance" },
-    { icon: <ShieldCheck size={18} />, text: "Strong code" },
+    { icon: <Sparkles size={18} />, text: t('synopsys_point_1') || "Clean design" },
+    { icon: <Zap size={18} />, text: t('synopsys_point_2') || "Fast performance" },
+    { icon: <ShieldCheck size={18} />, text: t('synopsys_point_3') || "Strong code" },
   ]
 
   return (
@@ -19,7 +23,7 @@ export function Synopsys() {
           viewport={{ once: true }}
           className="px-4 py-1.5 border border-cyan-500/20 bg-cyan-500/5 text-cyan-500 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full"
         >
-          Methodology
+          {t('synopsys_badge') || 'Methodology'}
         </motion.div>
 
         {/* Titre Principal */}
@@ -30,8 +34,14 @@ export function Synopsys() {
           viewport={{ once: true }}
           className="text-3xl md:text-6xl font-bold tracking-tight leading-[1.1] text-foreground"
         >
-          Design with <span className="text-zinc-500 italic font-serif">intention</span>,<br /> 
-          develop for <span className="text-cyan-500">impact.</span>
+          {t('synopsys_title_start') || 'Design with'}{' '}
+          <span className="text-zinc-500 italic font-serif">
+            {t('synopsys_title_italic') || 'intention'}
+          </span>,<br /> 
+          {t('synopsys_title_end') || 'develop for'}{' '}
+          <span className="text-cyan-500">
+            {t('synopsys_title_impact') || 'impact.'}
+          </span>
         </motion.h2>
 
         {/* Paragraphe de vision */}
@@ -42,7 +52,11 @@ export function Synopsys() {
           viewport={{ once: true }}
           className="text-zinc-500 dark:text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light"
         >
-          My work is not just about writing code. It is a journey that turns an abstract idea into a real digital product, where <span className="text-foreground">every pixel</span> and every function is important.
+          {t('synopsys_description_start') || 'My work is not just about writing code. It is a journey that turns an abstract idea into a real digital product, where'}{' '}
+          <span className="text-foreground">
+            {t('synopsys_description_highlight') || 'every pixel'}
+          </span>{' '}
+          {t('synopsys_description_end') || 'and every function is important.'}
         </motion.p>
 
         {/* Points d'ancrage */}

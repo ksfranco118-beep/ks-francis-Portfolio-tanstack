@@ -1,40 +1,42 @@
 import { ArrowRight, Lightbulb, Cog, Terminal, Cpu, Network } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { createFileRoute } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next'; // ✅ Import
 
-// 1. Route declaration for TanStack Router
 export const Route = createFileRoute('/posts')({
   component: ProjectsSection,
 });
 
-const upcomingProjects = [
-  {
-    id: 1,
-    title: "High-Load Gateway",
-    tech: "Rust / WebRTC",
-    desc: "Designing a low-latency streaming gateway optimized for 10k+ simultaneous connections.",
-    icon: <Network size={24} />,
-    status: "Architecture"
-  },
-  {
-    id: 2,
-    title: "Cloud-Native Engine",
-    tech: "Go / Kubernetes",
-    desc: "Microservices orchestration engine with auto-scaling based on predictive traffic analysis.",
-    icon: <Cpu size={24} />,
-    status: "Development"
-  },
-  {
-    id: 3,
-    title: "SecOps Dashboard",
-    tech: "React / TanStack",
-    desc: "Real-time network monitoring interface with visualization of encrypted data flows.",
-    icon: <Terminal size={24} />,
-    status: "Prototyping"
-  }
-];
-
 export default function ProjectsSection() {
+  const { t } = useTranslation(); // ✅ Hook
+
+  const upcomingProjects = [
+    {
+      id: 1,
+      title: t('lab_proj1_title'),
+      tech: "Rust / WebRTC",
+      desc: t('lab_proj1_desc'),
+      icon: <Network size={24} />,
+      status: t('lab_status_arch')
+    },
+    {
+      id: 2,
+      title: t('lab_proj2_title'),
+      tech: "Go / Kubernetes",
+      desc: t('lab_proj2_desc'),
+      icon: <Cpu size={24} />,
+      status: t('lab_status_dev')
+    },
+    {
+      id: 3,
+      title: t('lab_proj3_title'),
+      tech: "React / TanStack",
+      desc: t('lab_proj3_desc'),
+      icon: <Terminal size={24} />,
+      status: t('lab_status_proto')
+    }
+  ];
+
   return (
     <section className="relative py-16 sm:py-24 bg-background overflow-hidden min-h-screen">
       
@@ -45,11 +47,11 @@ export default function ProjectsSection() {
         <div className="text-center space-y-6 mb-16">
           <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-500 text-[10px] font-bold tracking-widest uppercase">
             <Lightbulb size={14} />
-            The Laboratory
+            {t('lab_badge')}
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tighter text-foreground leading-tight">
-            Upcoming <span className="text-blue-500 italic font-serif">Inventions</span>.<br />
-            Engineering the Future.
+            {t('lab_title_part1')} <span className="text-blue-500 italic font-serif">{t('lab_title_accent')}</span>.<br />
+            {t('lab_title_part2')}
           </h2>
         </div>
 
@@ -87,7 +89,7 @@ export default function ProjectsSection() {
               <div className="space-y-2">
                 <div className="flex justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
                   <span>Stack: {project.tech}</span>
-                  <span className="animate-pulse">Loading...</span>
+                  <span className="animate-pulse">{t('lab_loading')}</span>
                 </div>
                 <div className="h-[2px] w-full bg-zinc-800 rounded-full overflow-hidden">
                   <motion.div 
@@ -120,13 +122,13 @@ export default function ProjectsSection() {
         {/* Global CTA */}
         <div className="flex justify-center mt-16">
           <motion.a 
-            href="https://github.com/your-username" 
+            href="https://github.com/votre-user" 
             target="_blank"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="group px-8 py-3 rounded-xl bg-zinc-950 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center gap-3 shadow-xl"
           >
-            Access Repository <Cog size={16} className="group-hover:rotate-90 transition-transform duration-500" />
+            {t('lab_cta')} <Cog size={16} className="group-hover:rotate-90 transition-transform duration-500" />
           </motion.a>
         </div>
       </div>

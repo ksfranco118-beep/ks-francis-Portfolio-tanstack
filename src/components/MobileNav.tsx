@@ -1,14 +1,18 @@
 import { House, Lightbulb, Library, Globe } from 'lucide-react'
-
-const navItems = [
-  { to: '/', label: 'Home', icon: House },
-  { to: '/posts', label: 'Projects', icon: Lightbulb },
-  { to: '/insights', label: 'Insights', icon: Library },
-  { to: '/web', label: 'Web', icon: Globe },
-]
+import { Link, useRouterState } from '@tanstack/react-router' // ✅ Meilleur pour TanStack
+import { useTranslation } from 'react-i18next' // ✅ Import pour la traduction
 
 export function MobileNav() {
-  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/'
+  const { t } = useTranslation()
+  const routerState = useRouterState()
+  const currentPath = routerState.location.pathname // ✅ Plus fiable que window.location
+
+  const navItems = [
+    { to: '/', label: t('nav_home'), icon: House },
+    { to: '/posts', label: t('nav_projects'), icon: Lightbulb },
+    { to: '/insights', label: t('nav_insights'), icon: Library },
+    { to: '/web', label: t('nav_websites'), icon: Globe },
+  ]
 
   return (
     <nav className="md:hidden fixed bottom-6 left-0 right-0 z-50 flex justify-center px-6">
@@ -19,9 +23,9 @@ export function MobileNav() {
           const isActive = currentPath === item.to
           
           return (
-            <a
+            <Link
               key={item.to}
-              href={item.to}
+              to={item.to as any}
               className={`relative flex flex-col items-center justify-center gap-1 flex-1 h-12 rounded-2xl transition-all duration-300 active:scale-90 group
                 ${isActive ? 'text-cyan-500' : 'text-zinc-500 hover:text-zinc-300'}`}
             >
@@ -36,15 +40,15 @@ export function MobileNav() {
                 className="transition-transform group-hover:-translate-y-0.5" 
               />
               
-              <span className="text-[8px] font-bold uppercase tracking-[0.2em] leading-none">
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] leading-none text-center">
                 {item.label}
               </span>
               
-              {/* Indicateur minimaliste (ligne plutôt que point) */}
+              {/* Indicateur minimaliste */}
               {isActive && (
                 <div className="absolute -bottom-1 w-4 h-[2px] rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
               )}
-            </a>
+            </Link>
           )
         })}
         
