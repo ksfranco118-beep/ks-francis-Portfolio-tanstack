@@ -78,6 +78,9 @@ insight_2_excerpt: "Sometimes we need to know the real benefits of internet subd
 insight_3_title: "TCP/IP: The 4-Layer Standard",
 insight_3_excerpt: "See how 4 practical layers replaced theoretical OSI. TCP/UDP, IP routing, encapsulation decoded visually.",
 
+insight_4_title: "IP adress and all thing you must know about it",
+insight_4_excerpt: "A unique numerical label assigned to every device connected to a network to ensure data reaches the right destination",
+
 
 
         //   skillgrid
@@ -157,22 +160,23 @@ expertise_tag_1: "Consulting",
 expertise_tag_2: "Architecture",
 expertise_tag_3: "Development",
 // wesite
-web_badge: "identite visuelle",
-web_title_1: "Artisanat",
-web_title_2: "Web Moderne",
-web_description: "Je ne construis pas seulement des sites web. Je crée des expériences numériques où le code propre rencontre une esthétique premium.",
-web_skill1_title: "Glassmorphism & Profondeur",
-web_skill1_desc: "J'utilise des effets modernes de transparence et de flou pour créer des interfaces élégantes et multicouches qui respirent le professionnalisme.",
-web_skill2_title: "Mouvement Fluide",
-web_skill2_desc: "Des transitions fluides et des animations organiques qui rendent chaque interaction naturelle et haut de gamme.",
-web_skill3_title: "Design Exclusif",
-web_skill3_desc: "Je construis des mises en page sur mesure conçues spécifiquement pour votre identité de marque et vos objectifs.",
-web_skill4_title: "Copywriting Stratégique",
-web_skill4_desc: "Les mots comptent. Je structure le contenu pour capturer l'attention et guider les utilisateurs vers vos objectifs principaux.",
-web_footer_title: "La Touche \"Premium\"",
-web_footer_desc: "Chaque pixel est placé avec intention. Je me concentre sur les détails que d'autres ignorent pour livrer un produit final supérieur.",
-web_cta: "Lancer un projet",
-web_wa_message: "J'ai un projet et je souhaite collaborer",
+web_badge: "Visual_Identity_System",
+web_title_1: "Modern Web",
+web_title_2: "Craftsmanship",
+web_description: "I don't just build websites. I create digital experiences where clean code meets premium aesthetics.",
+web_skill1_title: "Glassmorphism & Depth",
+web_skill1_desc: "I use modern transparency and blur effects to create elegant, layered interfaces that feel deep and professional.",
+web_skill2_title: "Fluid Motion",
+web_skill2_desc: "Smooth transitions and organic animations that make every interaction feel natural and high-quality.",
+web_skill3_title: "Exclusive Design",
+web_skill3_desc: " I build custom layouts designed specifically for your brand identity and goals.",
+web_skill4_title: "Strategic Copywriting",
+web_skill4_desc: "Words matter. I structure content to capture attention and guide users toward your primary goals.",
+web_footer_title: "The \"Premium\" Touch",
+web_footer_desc: "Every pixel is placed with intention. I focus on details that others ignore to deliver a superior final product.",
+web_cta: "Start a project",
+web_wa_message: "I have a project and want to collaborate",
+
         }
       },
       fr: {
@@ -283,23 +287,23 @@ expertise_tag_2: "Architecture",
 expertise_tag_3: "Développement",
 
 // websites
-web_badge: "Visual_Identity_System",
-web_title_1: "Modern Web",
-web_title_2: "Craftsmanship",
-web_description: "I don't just build websites. I create digital experiences where clean code meets premium aesthetics.",
-web_skill1_title: "Glassmorphism & Depth",
-web_skill1_desc: "I use modern transparency and blur effects to create elegant, layered interfaces that feel deep and professional.",
-web_skill2_title: "Fluid Motion",
-web_skill2_desc: "Smooth transitions and organic animations that make every interaction feel natural and high-quality.",
-web_skill3_title: "Exclusive Design",
-web_skill3_desc: " I build custom layouts designed specifically for your brand identity and goals.",
-web_skill4_title: "Strategic Copywriting",
-web_skill4_desc: "Words matter. I structure content to capture attention and guide users toward your primary goals.",
-web_footer_title: "The \"Premium\" Touch",
-web_footer_desc: "Every pixel is placed with intention. I focus on details that others ignore to deliver a superior final product.",
-web_cta: "Start a project",
-web_wa_message: "I have a project and want to collaborate",
 
+web_badge: "identite visuelle",
+web_title_1: "Artisanat",
+web_title_2: "Web Moderne",
+web_description: "Je ne construis pas seulement des sites web. Je crée des expériences numériques où le code propre rencontre une esthétique premium.",
+web_skill1_title: "Glassmorphism & Profondeur",
+web_skill1_desc: "J'utilise des effets modernes de transparence et de flou pour créer des interfaces élégantes et multicouches qui respirent le professionnalisme.",
+web_skill2_title: "Mouvement Fluide",
+web_skill2_desc: "Des transitions fluides et des animations organiques qui rendent chaque interaction naturelle et haut de gamme.",
+web_skill3_title: "Design Exclusif",
+web_skill3_desc: "Je construis des mises en page sur mesure conçues spécifiquement pour votre identité de marque et vos objectifs.",
+web_skill4_title: "Copywriting Stratégique",
+web_skill4_desc: "Les mots comptent. Je structure le contenu pour capturer l'attention et guider les utilisateurs vers vos objectifs principaux.",
+web_footer_title: "La Touche \"Premium\"",
+web_footer_desc: "Chaque pixel est placé avec intention. Je me concentre sur les détails que d'autres ignorent pour livrer un produit final supérieur.",
+web_cta: "Lancer un projet",
+web_wa_message: "J'ai un projet et je souhaite collaborer",
 // insigth
 insight_kb: "Base de Connaissances",
 insight_description: "Documentations techniques, analyses d'architecture réseau et explorations frontend.",
@@ -314,8 +318,6 @@ insight_1_excerpt: "Vous vous demandez comment vos données traversent le globe 
 insight_2_title: "OSI : Les célèbres sept couches d'Internet",
 insight_2_excerpt: "Parfois, nous avons besoin de connaître les réels bénéfices de la subdivision d'Internet. Explorons ensemble le monde du modèle OSI.",
 // Article 3
-
-
 insight_3_title: "TCP/IP : La Norme des 4 Couches",
 insight_3_excerpt: "Découvrez comment 4 couches pratiques ont remplacé le modèle OSI théorique. TCP/UDP, routage IP, encapsulation décryptés.",
 

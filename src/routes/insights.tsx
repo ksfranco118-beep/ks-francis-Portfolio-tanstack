@@ -72,7 +72,7 @@ function InsightsPage() {
       title: t('insight_1_title'),
       excerpt: t('insight_1_excerpt'),
       date: "2026-02-08T10:00:00Z",
-      readTime: t('insight_1_readtime') || "8 min",
+      readTime: "8 min",
       category: t('cat_networking'),
       image: "/routing.jpg",
       sources: [
@@ -91,7 +91,7 @@ function InsightsPage() {
       title: t('insight_2_title'),
       excerpt: t('insight_2_excerpt'),
       date: "2026-02-10T01:00:00Z",
-      readTime: t('insight_2_readtime') || "15 min",
+      readTime: "15 min",
       category: t('cat_networking'),
       image: "/OSIMODEL.jpg",
       sources: [
@@ -118,7 +118,7 @@ function InsightsPage() {
       title: t('insight_3_title'),
       excerpt: t('insight_3_excerpt'),
       date: "2026-02-12T09:00:00Z",
-      readTime: t('insight_3_readtime') || "12 min",
+      readTime: "12 min",
       category: t('cat_networking'),
       image: "/tcpip.jpg",
       sources: [
@@ -141,6 +141,26 @@ function InsightsPage() {
         {
           name: "YouTube",
           url: "https://www.youtube.com/results?search_query=mod%C3%A8le+TCP+IP+fran%C3%A7ais"
+        }
+      ]
+    },
+    {
+    
+      id: 4,
+      title: t('insight_4_title'),
+      excerpt: t('insight_4_excerpt'),
+      date: "2026-02-16T06:35:00Z",
+      readTime: "45 min",
+      category: t('cat_networking'),
+      image: "/adressip.jpg",
+      sources: [
+        {
+          name: "cisco.goffinet",
+          url: "https://cisco.goffinet.org/ccna/ipv4/introduction-aux-adresses-ip/"
+        },
+        {
+          name: "ATera",
+          url: "https://www.atera.com/fr/glossary/adressage-ip/"
         }
       ]
     }

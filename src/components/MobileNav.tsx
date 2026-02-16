@@ -27,7 +27,7 @@ export function MobileNav() {
               key={item.to}
               to={item.to as any}
               className={`relative flex flex-col items-center justify-center gap-1 flex-1 h-12 rounded-2xl transition-all duration-300 active:scale-90 group
-                ${isActive ? 'text-cyan-500' : 'text-zinc-500 hover:text-zinc-300'}`}
+                ${isActive ? 'text-cyan-500' : 'text-zinc-500 dark:hover:text-zinc-300 hover:text-blue-600 '}`}
             >
               {/* Effet de brillance interne uniquement sur l'élément actif */}
               {isActive && (

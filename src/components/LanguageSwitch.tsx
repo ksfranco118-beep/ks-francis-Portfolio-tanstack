@@ -11,7 +11,7 @@ export function LanguageSwitch() {
   return (
     <button
       onClick={toggleLang}
-      className="group relative flex items-center gap-2 px-2 py-3 rounded-2xl border border-2xl bg-muted/20 hover:bg-muted/50 transition-all duration-300"
+      className="group relative flex items-center p-2.5 rounded-xl border  border-black/40 bg-muted/20 hover:bg-muted/50 transition-all duration-300 hover:bg-black"
     >
   
 
