@@ -400,7 +400,6 @@ IPv4 addresses are written in a format called dotted decimal notation. This mean
 
 IPv6 addresses, on the other hand, use a hexadecimal format, which is very different from that of IPv4. An IPv6 address is much longer and consists of eight groups of four hexadecimal digits, separated by colons, as follows: 2001:0db8:85a3:00:0000:0000:8a2e:0370:7334. This expanded format provides more addresses, allowing more addresses to be answered by the increasing number of devices connected to the Internet.
 
-![IP Address Classes Diagram](/classadress.png)
 
 ## **Subnet and CIDR rating** 
 
@@ -547,8 +546,6 @@ Les adresses IPv4 sont écrites dans un format appelé notation décimale point�
 ## **Structure de l'IPv6**
 
 Les adresses IPv6, quant à elles, utilisent un format hexadécimal, qui est très différent de celui de l'IPv4. Une adresse IPv6 est beaucoup plus longue et se compose de huit groupes de quatre chiffres hexadécimaux, séparés par deux points, comme suit : 2001:0db8:85a3:00:0000:0000:8a2e:0370:7334. Ce format étendu fournit plus d'adresses, permettant de répondre à l'augmentation du nombre d'appareils connectés à l'Internet.
-
-![Diagramme des classes d'adresses IP](/classaddress.png)
 
 ## **Sous-réseau et notation CIDR** 
 
