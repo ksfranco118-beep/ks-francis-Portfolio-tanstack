@@ -15,11 +15,10 @@ export const Route = createFileRoute('/blog/$id')({
   component: ArticleDetail,
 })
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 type ReactNodeLike = string | number | React.ReactNode | ReactNodeLike[]
 
-// ─── Utilities ────────────────────────────────────────────────────────────────
+
 
 /**
  * Extracts plain text from a React node tree.
@@ -49,7 +48,7 @@ function formatDate(dateStr: string, locale: string): string | null {
   })
 }
 
-// ─── Error Boundary ───────────────────────────────────────────────────────────
+
 
 interface BoundaryProps { children: React.ReactNode }
 interface BoundaryState { hasError: boolean }
@@ -92,12 +91,7 @@ class MarkdownErrorBoundary extends React.Component<BoundaryProps, BoundaryState
   }
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
-/**
- * FIX (new): Hero image with graceful error fallback.
- * Extracted from inline JSX so it can use hooks (useState).
- */
 function HeroImage({ src, alt }: { src: string; alt: string }) {
   const [errored, setErrored] = useState(false)
   const [loaded, setLoaded] = useState(false)
@@ -125,10 +119,7 @@ function HeroImage({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-/**
- * FIX (new): Inline markdown image with graceful error fallback.
- * Must be a named component (not an arrow in the components map) to use hooks.
- */
+
 function MarkdownImage({ src, alt }: { src?: string; alt?: string }) {
   const [errored, setErrored] = useState(false)
 
@@ -154,7 +145,6 @@ function MarkdownImage({ src, alt }: { src?: string; alt?: string }) {
   )
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
 
 function ArticleDetail() {
   const { id } = Route.useParams()
